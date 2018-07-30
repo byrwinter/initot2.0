@@ -38,7 +38,7 @@ addAdminFilter = add_filter()
 
 #handlers
 #start
-startHandler = CommandHandler("start", addAdmin)
+startHandler = CommandHandler("start", startHandle)
 dispatcher.add_handler(startHandler)
 
 #add admin handler
