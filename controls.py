@@ -60,8 +60,9 @@ def subMsgHandle(initot, update):
   if update.message.text in tokens:
     initot.send_message(chat_id=update.message.chat_id, text= smiley + " Congrats, you're now an admin.")
     addAdmin(initot, update)
-  elif update.message.text in utoken:
-    print("used token")
+    buttons = [["Reply Messages", "Add Admin"]]
+    keyboard = telegram.ReplyKeyboardMarkup(buttons,resize_keyboard=True)
+    initot.send_message(chat_id=update.message.chat_id, text="Hello Admin " + smile + "\n What do you wanna do?" , reply_markup=keyboard)
   else:
     if sub:
       initot.send_message(chat_id=update.message.chat_id, text="Message recieved " + thumbsup + ".\nWe'll get back to you " + simple_smile)
@@ -92,8 +93,9 @@ def repliedMsgHandle(initot, update):
 #add admin handle
 
 def addAdminHandle(initot, update):
-  admin = getAdmins(initot, update)
   admintoken = createToken()
+  rankResults = checkRank(initot, update)
+  admin = rankResults[0] 
   if admin:
     initot.send_message(chat_id=update.message.chat_id, text= thumbsup + "We've recieved your message to add an administrator.\n" + warning + "We're about to send a token to you. Give this token to your desired admin and tell him to send it to us. The token will expire within 24hours")
     createToken()
