@@ -52,7 +52,7 @@ def getAdmins(initot, update):
     return admins
 
 def deletetoken(admintoken):
-  time.sleep(5)
+  time.sleep(120)
   usedtokens.insert({"currenttoken": admintoken})
   admintokens.remove({"currenttoken": admintoken})
 
