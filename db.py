@@ -8,8 +8,11 @@ from pymongo import MongoClient
 
 
 #variables and settings
-initotClient = MongoClient()
-initotdb = initotClient["quentindb"]
+nitotClient = MongoClient("mongodb://quentindb:quentin1@ds161411.mlab.com:61411/quentindb",
+                     connectTimeoutMS=30000,
+                     socketTimeoutMS=None,
+                     socketKeepAlive=True)
+initotdb = initotClient.get_default_database()
 initotadmins = initotdb["initotadmins"]
 initotsubs = initotdb["initotsubs"]
 admintokens = initotdb["admintokens"]
