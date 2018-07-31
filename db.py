@@ -8,8 +8,8 @@ from pymongo import MongoClient
 
 
 #variables and settings
-initotClient = MongoClient()
-initotdb = initotClient["initotdb"]
+initotClient = MongoClient("mongodb://quentindb:quentin1@ds161411.mlab.com:61411/quentindb", 61411)
+initotdb = initotClient["quentindb"]
 initotadmins = initotdb["initotadmins"]
 initotsubs = initotdb["initotsubs"]
 admintokens = initotdb["admintokens"]
@@ -52,7 +52,7 @@ def getAdmins(initot, update):
     return admins
 
 def deletetoken(admintoken):
-  time.sleep(120)
+  time.sleep(70)
   usedtokens.insert({"currenttoken": admintoken})
   admintokens.remove({"currenttoken": admintoken})
 
