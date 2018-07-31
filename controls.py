@@ -1,7 +1,6 @@
 import telegram, time, threading
 from telegram.ext import Updater, Dispatcher, BaseFilter, MessageHandler, CommandHandler, Filters
 from emoji import emojize
-from controls import *
 from db import *
 
 
