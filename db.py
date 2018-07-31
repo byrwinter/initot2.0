@@ -74,3 +74,5 @@ def checkToken():
     tokens.append(token["currenttoken"])
   return tokens
 
+initotdb.close()
+
