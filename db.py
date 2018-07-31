@@ -8,7 +8,7 @@ from pymongo import MongoClient
 
 
 #variables and settings
-initotClient = MongoClient("localhost", process.env.PORT)
+initotClient = MongoClient("localhost")
 initotdb = initotClient["quentindb"]
 initotadmins = initotdb["initotadmins"]
 initotsubs = initotdb["initotsubs"]
